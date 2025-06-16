@@ -1,0 +1,15 @@
+.search-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #3498db; /* Highlight border on focus */
+  }
+}

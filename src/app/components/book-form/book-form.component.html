@@ -1,0 +1,78 @@
+<section class="book-form-section">
+  <h2>{{ editMode ? 'Edit Book' : 'Add Book' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" #bookForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        required
+        [(ngModel)]="title"
+        #titleRef="ngModel"
+      />
+      <div class="error" *ngIf="titleRef.invalid && titleRef.touched">Title is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input
+        type="text"
+        id="author"
+        name="author"
+        required
+        [(ngModel)]="author"
+        #authorRef="ngModel"
+      />
+      <div class="error" *ngIf="authorRef.invalid && authorRef.touched">Author is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="publication_date">Publication Date</label>
+      <input
+        type="date"
+        id="publication_date"
+        name="publication_date"
+        required
+        [(ngModel)]="publication_date"
+        #dateRef="ngModel"
+      />
+      <div class="error" *ngIf="dateRef.invalid && dateRef.touched">Date is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input
+        type="text"
+        id="isbn"
+        name="isbn"
+        required
+        [(ngModel)]="isbn"
+        #isbnRef="ngModel"
+        [readonly]="editMode"
+      />
+      <div class="error" *ngIf="isbnRef.invalid && isbnRef.touched">ISBN is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input
+        type="text"
+        id="genre"
+        name="genre"
+        required
+        [(ngModel)]="genre"
+        #genreRef="ngModel"
+      />
+      <div class="error" *ngIf="genreRef.invalid && genreRef.touched">Genre is required.</div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="bookForm.invalid">
+        {{ editMode ? 'Update Book' : 'Add Book' }}
+      </button>
+      <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</section>

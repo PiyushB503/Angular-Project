@@ -1,0 +1,107 @@
+$primary-color: #34495e;
+$edit-color: #3498db;
+$delete-color: #e74c3c;
+$hover-color: #f4f4f4;
+$no-data-color: #888;
+$box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+
+  thead {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    min-width: 100px;
+    word-break: break-word;
+  }
+
+  tbody tr:hover {
+    background-color: $hover-color;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    .edit, .delete {
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .edit {
+      background-color: $edit-color;
+      color: white;
+    }
+
+    .delete {
+      background-color: $delete-color;
+      color: white;
+    }
+  }
+}
+
+// Responsive styles for smaller screens
+@media (max-width: 768px) {
+  .styled-table thead {
+    display: none;
+  }
+
+  .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .styled-table tr {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .styled-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .styled-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 12px;
+    width: 45%;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  .action-buttons {
+    justify-content: flex-end;
+  }
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: $no-data-color;
+  font-size: 1.1rem;
+}

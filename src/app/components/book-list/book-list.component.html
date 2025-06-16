@@ -1,0 +1,38 @@
+<!-- Add Search Component at the top -->
+<app-search (searchQuery)="onSearch($event)"></app-search>
+
+<div class="sort-buttons">
+  <button (click)="sortByAuthorAsc()">Sort A-Z</button>
+  <button (click)="sortByAuthorDesc()">Sort Z-A</button>
+</div>
+
+<!-- Display the books if they exist and are filtered -->
+<ng-container *ngIf="filteredBooks.length">
+  <div *ngIf="!loading && filteredBooks.length === 0" class="no-data">No books found.</div>
+
+  <table *ngIf="filteredBooks.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Date</th>
+        <th>ISBN</th>
+        <th>Genre</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of filteredBooks">
+        <td data-label="Title">{{ book.title }}</td>
+        <td data-label="Author">{{ book.author }}</td>
+        <td data-label="Date">{{ book.publication_date }}</td>
+        <td data-label="ISBN">{{ book.isbn }}</td>
+        <td data-label="Genre">{{ book.genre }}</td>
+        <td data-label="Actions" class="action-buttons">
+          <button (click)="onEdit(book.isbn)" class="edit">✏️</button>
+          <button (click)="onDelete(book.isbn)" class="delete">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
