@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Book } from '../models/books';
+import { Book } from '../models/book.model';
 import { API_CONFIG } from '../config/api-config';
 
 @Injectable({ providedIn: 'root' })

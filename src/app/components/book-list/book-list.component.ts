@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { BookService } from '../../services/book.service';
-import { Book } from '../../models/books';
+import { Book } from '../../models/book.model';
 import { Observable } from 'rxjs';
 import { SearchComponent } from '../book-search/book-search.component';
 
